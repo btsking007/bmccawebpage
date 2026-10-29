@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123b32">
+  <meta name="description" content="Bharata Mata College of Commerce and Arts (BMCCA), Choondy, Aluva, Kerala. Affiliated to Mahatma Gandhi University, Kottayam.">
+  <title>BMCCA | Bharata Mata College of Commerce & Arts</title>
+  <style>
+    :root {
+      --green: #123b32;
+      --green-2: #1d5a49;
+      --gold: #d8ad5b;
+      --ink: #172522;
+      --muted: #5f6e69;
+      --paper: #f5efdf;
+      --white: #fffaf0;
+      --line: #e0e7e1;
+      --shadow: 0 18px 50px rgba(18, 59, 50, .10);
+      --radius: 20px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.65; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    button, input, textarea { font: inherit; }
+    .container { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
+    .site-header { position: sticky; top: 0; z-index: 20; background: rgba(250,245,232,.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+    .nav-wrap { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 13px; min-width: 0; text-decoration: none; }
+    .logo { width: 54px; height: 54px; object-fit: contain; flex: 0 0 auto; }
+    .brand-name { margin: 0; color: var(--green); font-size: 1.03rem; line-height: 1.25; letter-spacing: .04em; }
+    .brand-sub { margin: 4px 0 0; color: var(--muted); font-size: .75rem; line-height: 1.35; }
+    .nav-links { display: flex; align-items: center; gap: 27px; }
+    .nav-links a { color: #354640; text-decoration: none; font-size: .92rem; font-weight: 650; }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--green-2); }
+    .menu-toggle { display: none; border: 1px solid var(--line); background: #fffaf0; color: var(--green); border-radius: 10px; padding: 9px 12px; cursor: pointer; }
+    .hero { padding: 64px 0 48px; }
+    .hero-grid { display: grid; grid-template-columns: 1fr; gap: 30px; align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--green-2); font-size: .78rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--gold); }
+    h2, h3, h4, p { overflow-wrap: anywhere; }
+    .hero h2 { margin: 18px 0; max-width: 620px; color: var(--green); font-size: clamp(2.35rem, 5vw, 4.45rem); line-height: 1.06; letter-spacing: -.045em; }
+    .hero-copy { max-width: 570px; color: var(--muted); font-size: 1.08rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn { display: inline-flex; justify-content: center; align-items: center; min-height: 48px; padding: 12px 20px; border-radius: 10px; border: 1px solid transparent; text-decoration: none; font-weight: 750; transition: transform .18s, background .18s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--green); color: white; }
+    .btn-primary:hover { background: var(--green-2); }
+    .btn-secondary { color: var(--green); border-color: #b8c9bf; background: transparent; }
+    .hero-photo-wrap { position: relative; }
+    .hero-photo { width: 100%; height: clamp(300px, 42vw, 490px); object-fit: cover; border-radius: 26px; box-shadow: var(--shadow); background: #e8ddc7; }
+    .photo-caption { position: absolute; left: 18px; right: 18px; bottom: 18px; padding: 13px 16px; border-radius: 12px; background: rgba(18,59,50,.88); color: white; font-size: .9rem; backdrop-filter: blur(8px); }
+    .intro-band { background: var(--green); color: white; padding: 24px 0; }
+    .intro-band-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .intro-band strong { font-size: clamp(1rem, 2vw, 1.25rem); }
+    .intro-band span { color: #dbe8df; font-size: .9rem; }
+    section.content-section { padding: 76px 0; }
+    .section-heading { max-width: 720px; margin-bottom: 30px; }
+    .section-heading h3 { margin: 10px 0 12px; color: var(--green); font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1.15; letter-spacing: -.03em; }
+    .section-heading p { margin: 0; color: var(--muted); }
+    .story-card { display: grid; grid-template-columns: .8fr 1.2fr; gap: 30px; align-items: start; padding: 32px; border: 1px solid var(--line); border-radius: var(--radius); background: #fffaf0; box-shadow: 0 8px 30px rgba(18,59,50,.04); }
+    .story-label { color: var(--green-2); font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .story-card h4 { margin: 8px 0 0; color: var(--green); font-size: 1.55rem; line-height: 1.2; }
+    .story-card p { margin: 0 0 13px; color: var(--muted); }
+    .department-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
+    .department { padding: 25px; border: 1px solid var(--line); border-radius: 16px; background: #fffaf0; transition: transform .2s, box-shadow .2s; }
+    .department:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .department-icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; background: #e9f0e9; color: var(--green); font-size: 1.25rem; }
+    .department h4 { margin: 17px 0 7px; color: var(--green); font-size: 1.12rem; }
+    .department p { margin: 0; color: var(--muted); font-size: .94rem; }
+    .contact-section { background: #eee5d2; }
+    .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 34px; }
+    .contact-panel, .form-panel { padding: 30px; border: 1px solid var(--line); border-radius: var(--radius); background: #fffaf0; }
+    .contact-panel h4, .form-panel h4 { margin: 0 0 18px; color: var(--green); font-size: 1.3rem; }
+    .contact-item { margin: 0 0 17px; color: var(--muted); }
+    .contact-item strong { display: block; color: var(--ink); font-size: .85rem; }
+    .contact-item a { color: var(--green-2); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    .field { margin-bottom: 15px; }
+    .field label { display: block; margin-bottom: 6px; font-size: .9rem; font-weight: 700; }
+    .field input, .field textarea { width: 100%; border: 1px solid #cbd7cf; border-radius: 9px; padding: 12px 13px; color: var(--ink); background: #fffaf0; }
+    .field input:focus, .field textarea:focus, .menu-toggle:focus-visible, a:focus-visible, button:focus-visible { outline: 3px solid #e4c47f; outline-offset: 3px; }
+    .field textarea { min-height: 125px; resize: vertical; }
+    .form-note { margin: 12px 0 0; color: var(--muted); font-size: .82rem; }
+    .site-footer { padding: 26px 0; background: #0d2b25; color: #e0e9e3; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 15px; }
+    .site-footer p { margin: 0; font-size: .85rem; }
+    .back-top { color: #e0e9e3; font-size: .85rem; text-decoration: none; }
+    @media (max-width: 850px) {
+      .hero-grid { gap: 30px; }
+      .nav-links { gap: 16px; }
+      .department-grid { grid-template-columns: repeat(2, 1fr); }
+      .story-card { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 680px) {
+      .container { width: min(100% - 30px, 1160px); }
+      .nav-wrap { min-height: 72px; }
+      .logo { width: 45px; height: 45px; }
+      .brand { gap: 9px; }
+      .brand-name { font-size: .92rem; }
+      .brand-sub { max-width: 205px; font-size: .68rem; }
+      .menu-toggle { display: inline-flex; }
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; padding: 12px 20px 20px; background: #fffaf0; border-bottom: 1px solid var(--line); flex-direction: column; align-items: stretch; gap: 0; }
+      .nav-links.open { display: flex; }
+      .nav-links a { display: block; padding: 12px 5px; }
+      .hero { padding: 42px 0 35px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 30px; }
+      .hero h2 { font-size: clamp(2.5rem, 12vw, 3.6rem); }
+      .hero-copy { font-size: 1rem; }
+      .hero-photo { height: 300px; }
+      .intro-band-inner { align-items: flex-start; flex-direction: column; gap: 4px; }
+      section.content-section { padding: 55px 0; }
+      .story-card, .contact-panel, .form-panel { padding: 22px; }
+      .department-grid, .contact-grid { grid-template-columns: 1fr; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="BMCCA home">
+<div><p class="brand-name"><strong>BMCCA</strong></p><p class="brand-sub">Bharata Mata College of Commerce &amp; Arts</p></div>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">Menu ☰</button>
+      <nav class="nav-links" id="site-navigation" aria-label="Main navigation">
+        <a href="#home">Home</a><a href="#story">About</a><a href="#departments">Programmes</a><a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Choondy · Aluva · Kerala</span>
+          <h2>Bharata Mata College of Commerce &amp; Arts</h2>
+          <p class="hero-copy">Bharata Mata College of Commerce and Arts (BMCCA) is a private, self-financing, co-educational institution established in 2014 at Choondy, Aluva, Kerala. It is affiliated with Mahatma Gandhi University, Kottayam.</p>
+          <div class="actions"><a class="btn btn-primary" href="#departments">View programmes</a><a class="btn btn-secondary" href="#contact">Contact the college</a></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="intro-band"><div class="container intro-band-inner"><strong>Affiliated to Mahatma Gandhi University, Kottayam</strong><span>Established in 2014 · Self-financing institution</span></div></div>
+
+    <section class="content-section" id="story">
+      <div class="container">
+        <div class="section-heading"><span class="eyebrow">About the college</span><h3>About BMCCA</h3></div>
+        <div class="story-card">
+          <div><span class="story-label">About BMCCA</span><h4>Bharata Mata College of Commerce and Arts</h4></div>
+          <div>
+            <p>Bharata Mata College of Commerce and Arts (BMCCA) is a private, self-financing, co-educational institution established in 2014. It is located at Choondy (Chunangamvely), Aluva, Ernakulam district, Kerala, PIN 683112.</p>
+            <p>BMCCA is affiliated with Mahatma Gandhi University (MGU), Kottayam. The college prospectus states that it is owned and managed by the Archdiocese of Ernakulam–Angamaly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="departments" style="background:#f8f1e2">
+      <div class="container">
+        <div class="section-heading"><span class="eyebrow">Academic programmes</span><h3>Programmes</h3></div>
+        <div class="department-grid">
+          <article class="department"><div class="department-icon" aria-hidden="true">01</div><h4>Bachelor of Computer Applications (BCA)</h4><p>Undergraduate programme listed in BMCCA’s 2025–26 prospectus.</p></article>
+          <article class="department"><div class="department-icon" aria-hidden="true">02</div><h4>B.Sc. Cyber Forensics</h4><p>Undergraduate programme listed in BMCCA’s 2025–26 prospectus.</p></article>
+          <article class="department"><div class="department-icon" aria-hidden="true">03</div><h4>Bachelor of Business Administration (BBA)</h4><p>Undergraduate programme listed in BMCCA’s 2025–26 prospectus.</p></article>
+          <article class="department"><div class="department-icon" aria-hidden="true">04</div><h4>Bachelor of Social Work (BSW)</h4><p>Undergraduate programme listed in BMCCA’s 2025–26 prospectus.</p></article>
+          <article class="department"><div class="department-icon" aria-hidden="true">05</div><h4>Bachelor of Commerce (B.Com.)</h4><p>The prospectus lists specializations in Finance &amp; Taxation, Financial Markets, and Logistics Management.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section contact-section" id="contact">
+      <div class="container">
+        <div class="section-heading"><span class="eyebrow">Official contact information</span><h3>Contact BMCCA</h3></div>
+        <div class="contact-grid">
+          <div class="contact-panel">
+            <h4>College details</h4>
+            <p class="contact-item"><strong>Address</strong>Bharata Mata College of Commerce and Arts, Choondy, Aluva, Ernakulam, Kerala – 683112, India</p>
+            <p class="contact-item"><strong>Phone</strong><a href="tel:+914842837540">0484-2837540</a></p>
+            <p class="contact-item"><strong>Additional helpline</strong><a href="tel:+919188623740">9188623740</a></p>
+            <p class="contact-item"><strong>Email</strong><a href="mailto:mail@bmcca.edu.in">mail@bmcca.edu.in</a></p>
+            <p class="contact-item"><strong>Additional email</strong><a href="mailto:bmcca.aluva@gmail.com">bmcca.aluva@gmail.com</a></p>
+            <p class="contact-item"><strong>Website</strong><a href="https://www.bmcca.edu.in" target="_blank" rel="noopener noreferrer">www.bmcca.edu.in</a></p>
+            
+          </div>
+          <div class="form-panel">
+            <h4>Prepare an enquiry</h4>
+            <form id="enquiry-form">
+              <div class="field"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required></div>
+              <div class="field"><label for="email">Your email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+              <div class="field"><label for="message">Your message</label><textarea id="message" name="message" required></textarea></div>
+              <button class="btn btn-primary" type="submit">Open email to send</button>
+              <p class="form-note">This static website does not store or send form data itself. The button opens your email app with the enquiry filled in.</p>
+              <p id="form-status" class="form-note" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><p>© <span id="year"></span> Bharata Mata College of Commerce &amp; Arts (BMCCA) · Choondy, Aluva, Kerala.</p><a class="back-top" href="#home">Back to top ↑</a></div></footer>
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav-links');
+    menuButton.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      menuButton.textContent = isOpen ? 'Close ×' : 'Menu ☰';
+    });
+    nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.textContent = 'Menu ☰';
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('enquiry-form').addEventListener('submit', event => {
+      event.preventDefault();
+      const data = new FormData(event.currentTarget);
+      const subject = encodeURIComponent('BMCCA website enquiry');
+      const body = encodeURIComponent(`Name: ${data.get('name')}\nEmail: ${data.get('email')}\n\nMessage:\n${data.get('message')}`);
+      document.getElementById('form-status').textContent = 'Opening your email application…';
+      window.location.href = `mailto:mail@bmcca.edu.in?subject=${subject}&body=${body}`;
+    });
+  </script>
+</body>
+</html>
